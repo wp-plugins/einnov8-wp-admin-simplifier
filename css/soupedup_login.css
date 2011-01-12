@@ -1,0 +1,60 @@
+* {
+text-shadow:none;
+}
+h1 a {
+-moz-background-clip:border;
+-moz-background-inline-policy:continuous;
+-moz-background-origin:padding;
+background:transparent url(../soupedup_logo_login.png) no-repeat scroll 0 50%;
+display:block;
+height:50px;
+overflow:hidden;
+padding-bottom:15px;
+width:360px;
+}
+#login {
+background-color:#000000;
+border:6px solid #FA0808;
+padding:8px;
+width:360px;
+}
+.login {
+background-color:#FFFFFF;
+border:6px solid #FF3500;
+height:100%;
+}
+body.login {
+border-top-color:#FF3500;
+height:100%;
+}
+.login #backtoblog a {
+color:#000000;
+display:none;
+}
+.login #backtoblog a:hover, #plugin-information .action-button a, #plugin-information .action-button a:hover, #plugin-information .action-button a:visited {
+color:#D14202 !important;
+display:none;
+}
+.login #backtoblog p {
+display:none;
+}
+#loginform {
+background-color:#FFFFFF;
+margin:auto;
+width:80%;
+}
+#loginform input {
+background-color:#FFFFFF;
+}
+.login #nav a {
+color:#D14202 !important;
+}
+.error, #login #login_error {
+background-color:#FFFFFF;
+border-color:#F7032C;
+margin:auto;
+width:80%;
+}
+.login .message {
+background-color:#E8EB70;
+}
