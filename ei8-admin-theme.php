@@ -5,7 +5,7 @@ Plugin URI: http://wordpress.org/extend/plugins/einnov8-wp-xml-rpc-notifier/
 Plugin Description: Customize appearance of admin panels and limit options for non-admin users.
 Version: 2.0.4
 Author: Tim Gallaugher
-Author URI: http://dev.ei8t.com/extend/ei8-admin-theme/
+Author URI: http://wordpress.org/extend/plugins/profile/yipeecaiey
 License: GPL2 
 
 Copyright 2010 eInnov8 Marketing  (email : timg@einnov8.com)
