@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: eInnov8 WP Admin Simplifier
-Plugin URI: http://dev.ei8t.com/extend/ei8-admin-theme
+Plugin URI: http://wordpress.org/extend/plugins/einnov8-wp-xml-rpc-notifier/
 Plugin Description: Customize appearance of admin panels and limit options for non-admin users.
-Version: 2.0.3
+Version: 2.0.4
 Author: Tim Gallaugher
-Author URI: http://www.eInnov8.com/
+Author URI: http://dev.ei8t.com/extend/ei8-admin-theme/
 License: GPL2 
 
 Copyright 2010 eInnov8 Marketing  (email : timg@einnov8.com)
@@ -412,7 +412,8 @@ $siteType = ei8_admin_get_site_type();
 }
 
 function ei8_admin_get_blog_option($val) {
-    return (is_multisite()) ? get_site_option($val) : get_blog_option($val) ;
+    global $wp_version;
+    return ($wp_version >= 3) ? get_site_option($val) : get_blog_option($val) ;
 } 
 
 function ei8_admin_get_option($id) {
@@ -493,7 +494,7 @@ function ei8_admin_settings_link($links, $file) {
 
 //handle db table installs and updates
 function ei8_admin_admin_install() {
-    global $wpdb;
+    global $wpdb, $wp_version;
     
     $table1 = $wpdb->prefix . "ei8_admin_options";
 
@@ -505,7 +506,7 @@ function ei8_admin_admin_install() {
         UNIQUE ( `option_name` )
         );";
 
-    if(!is_multisite()) require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+    if($wp_version < 3) require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
     $ei8_admin_db_sql   = $table1_sql ;
     
     $wpdb->flush();
