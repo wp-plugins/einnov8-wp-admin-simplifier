@@ -1,9 +1,9 @@
 <?php
 /*
 Plugin Name: eInnov8 WP Admin Simplifier
-Plugin URI: http://wordpress.org/extend/plugins/einnov8-wp-xml-rpc-notifier/
+Plugin URI: http://wordpress.org/extend/plugins/einnov8-wp-admin-simplifier/
 Plugin Description: Customize appearance of admin panels and limit options for non-admin users.
-Version: 2.0.4
+Version: 2.0.5
 Author: Tim Gallaugher
 Author URI: http://wordpress.org/extend/plugins/profile/yipeecaiey
 License: GPL2 
@@ -29,7 +29,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 function ei8_admin_css() {
     $url = get_settings('siteurl');
     $siteType = ei8_admin_get_site_type();
-    if ($siteType) echo '<link rel="stylesheet" href="'.$url.'/wp-content/plugins/ei8-admin-theme/css/'.$siteType.'_wp-admin.css" type="text/css" />';
+    if ($siteType) echo '<link rel="stylesheet" href="'.$url.'/wp-content/plugins/'.ei8_admin_get_plugin_dir().'/css/'.$siteType.'_wp-admin.css" type="text/css" />';
 }
 add_action('admin_head','ei8_admin_css');
 
@@ -37,7 +37,7 @@ add_action('admin_head','ei8_admin_css');
 function ei8_admin_login_css() {
     $url = get_settings('siteurl');
     $siteType = ei8_admin_get_site_type();
-    if ($siteType) echo '<link rel="stylesheet" href="'.$url.'/wp-content/plugins/ei8-admin-theme/css/'.$siteType.'_login.css" type="text/css" />';
+    if ($siteType) echo '<link rel="stylesheet" href="'.$url.'/wp-content/plugins/'.ei8_admin_get_plugin_dir().'/css/'.$siteType.'_login.css" type="text/css" />';
 }
 add_action('login_head','ei8_admin_login_css');
 
@@ -72,7 +72,7 @@ function ei8_admin_login_form() {
 add_action('login_form','ei8_admin_login_form');
 
 //add the javascript to remove the footer
-wp_enqueue_script( 'ei8_admin_remove_footer', WP_PLUGIN_URL . '/ei8-admin-theme/js/remove_footer.js', array('jquery') );
+wp_enqueue_script( 'ei8_admin_remove_footer', WP_PLUGIN_URL.'/'.ei8_admin_get_plugin_dir().'/js/remove_footer.js', array('jquery') );
 
 //handle redirects
 function ei8_admin_redirect($goto) {
@@ -409,6 +409,12 @@ $siteType = ei8_admin_get_site_type();
     </form>
 </div>
 <?php
+}
+
+function ei8_admin_get_plugin_dir() {
+    $pathinfo = pathinfo( plugin_basename( __FILE__ ) );
+    $pluginDir = $pathinfo['dirname'];
+    return $pluginDir;
 }
 
 function ei8_admin_get_blog_option($val) {
