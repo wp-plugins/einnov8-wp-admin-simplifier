@@ -3,7 +3,7 @@
 Plugin Name: eInnov8 WP Admin Simplifier
 Plugin URI: http://wordpress.org/extend/plugins/einnov8-wp-admin-simplifier/
 Plugin Description: Customize appearance of admin panels and limit options for non-admin users.
-Version: 2.0.5
+Version: 2.0.6
 Author: Tim Gallaugher
 Author URI: http://wordpress.org/extend/plugins/profile/yipeecaiey
 License: GPL2 
@@ -72,7 +72,8 @@ function ei8_admin_login_form() {
 add_action('login_form','ei8_admin_login_form');
 
 //add the javascript to remove the footer
-wp_enqueue_script( 'ei8_admin_remove_footer', WP_PLUGIN_URL.'/'.ei8_admin_get_plugin_dir().'/js/remove_footer.js', array('jquery') );
+$js = (ei8_admin_get_option('ei8_admin_show_footer')=="show") ? "remove_footer_partial.js" : "remove_footer.js" ;
+wp_enqueue_script( 'ei8_admin_remove_footer', WP_PLUGIN_URL.'/'.ei8_admin_get_plugin_dir().'/js/'.$js, array('jquery') );
 
 //handle redirects
 function ei8_admin_redirect($goto) {
@@ -355,7 +356,11 @@ function ei8_admin_admin_options() {
         $var = 'ei8_admin_site_type';
         ei8_admin_update_option($var, $_POST[$var]);
         
+        $var = 'ei8_admin_show_footer';
+        ei8_admin_update_option($var, $_POST[$var]);
+        
         $siteName = ei8_admin_get_site_type_name();
+        if($siteName=="None") $siteName = "website";
         ei8_admin_admin_log("<p>Your $siteName preferences have been updated.</p>",1);
         
         //force page reload
@@ -386,6 +391,7 @@ function ei8_admin_admin_options() {
     }
 
 $siteType = ei8_admin_get_site_type();
+$showFooter = ei8_admin_get_option('ei8_admin_show_footer');
 ?>
 <div class="wrap">
 	<?php screen_icon(); ?>
@@ -401,6 +407,13 @@ $siteType = ei8_admin_get_site_type();
 <!--                     <option value="flood" <?php if('flood'==$siteType) echo "SELECTED"; ?>><?php echo ei8_admin_get_site_type_name('flood'); ?></option>
  -->                    <option value="videoaudio" <?php if('videoaudio'==$siteType) echo "SELECTED"; ?>><?php echo ei8_admin_get_site_type_name('videoaudio'); ?></option>
                     <option value="soupedup" <?php if('soupedup'==$siteType) echo "SELECTED"; ?>><?php echo ei8_admin_get_site_type_name('soupedup'); ?></option>
+                </select></td>
+        </tr>
+        <tr valign="top">
+            <th scope="row">Hide Footer: </th>
+            <td><select name='ei8_admin_show_footer'>
+                    <option value="hide" <?php if (!$showFooter || $showFooter=="hide") echo "SELECTED"; ?>>Hide footer (default)</option>
+                    <option value="show" <?php if('show'==$showFooter) echo "SELECTED"; ?>>Show footer</option>
                 </select></td>
         </tr>
     </table>    
