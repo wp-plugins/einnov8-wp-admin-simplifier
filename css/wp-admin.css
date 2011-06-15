@@ -1,0 +1,132 @@
+#header-logo {
+    background: transparent url(../logo_admin_header.png) no-repeat scroll center center;
+}
+
+img#header-logo{
+	width: 200px;
+}
+
+#wphead {
+    background-color:#000000;
+border-bottom:#efbf02 10px solid;
+}
+
+#wpbody {
+    background-color:#e8e5c4;
+}
+
+#wpwrap {
+    background-color:#e8e5c4;
+}
+
+#adminmenu * {
+	border-color: #f7032c;
+}
+
+#adminmenu {
+
+}
+
+a,
+#adminmenu a,
+#poststuff #edButtonPreview,
+#poststuff #edButtonHTML,
+#the-comment-list p.comment-author strong a,
+#media-upload a.del-link,
+#media-items a.delete,
+.plugins a.delete,
+.ui-tabs-nav a {
+	color: #000;
+}
+
+
+#major-publishing-actions {
+	background: #f8eca7;
+}
+
+.widefat thead tr th,
+.widefat tfoot tr th,
+h3.dashboard-widget-title,
+h3.dashboard-widget-title span,
+h3.dashboard-widget-title small,
+.find-box-head {
+	color: #333;
+	background: #f8eca7;
+}
+
+
+.wrap h2 {
+    color:#f7032c;
+font: italic normal normal 24px/29px Georgia, "Times New Roman", "Bitstream Charter", Times, serif;
+	margin: 0;
+	padding: 14px 15px 3px 0;
+	line-height: 35px;
+	text-shadow: #f7032c 0px 1px 0px;
+}
+
+#adminmenu a.menu-top {
+background: #f8eca7;
+color: #f7032c;
+font-weight:bold;
+}
+
+#adminmenu .wp-submenu a {
+	background: #fffbcc url(../images/menu-bits.gif) no-repeat scroll 0 -310px;
+}
+
+#adminmenu .wp-submenu a:hover {
+	background-color: #efbf02 !important;
+	color: #333 !important;
+}
+
+
+#adminmenu li.wp-has-current-submenu.wp-menu-open .wp-menu-toggle,
+#adminmenu li.wp-has-current-submenu:hover .wp-menu-toggle {
+	background: #ffa2a2 url(../images/menu-bits.gif) no-repeat scroll left -207px;
+}
+
+#adminmenu .wp-has-current-submenu ul li a {
+	background: #none;
+}
+
+#adminmenu .wp-has-current-submenu ul li a.current {
+	background: url(../images/menu-dark.gif) top left no-repeat !important;
+}
+
+#adminmenu li.wp-has-current-submenu a.wp-has-current-submenu,
+#adminmenu .menu-top .current {
+	background: #ffa2a2 url(../images/menu-bits.gif) top left repeat-x;
+	border-color: #efbf02;
+	color: #000000;
+}
+
+
+
+body,
+#wpbody,
+.form-table .pre {
+    color:#000000;
+}
+
+#wphead h1 a {
+	color: #efbf02;
+}
+
+#media-upload {
+	background: #fffbcc;
+}
+
+textarea,
+input,
+select {
+	border-color: #efbf02;
+}
+
+#postcustomstuff table,
+#your-profile fieldset,
+#rightnow,
+div.dashboard-widget,
+#dashboard-widgets p.dashboard-widget-links,
+#replyrow #ed_reply_toolbar input {
+	border-color: #f7032c;
+}

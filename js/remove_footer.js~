@@ -1,0 +1,7 @@
+/**
+ * remove footer
+ */
+jQuery(document).ready(function() {
+	jQuery('#footer').detach();
+	jQuery('#contextual-help-link-wrap').remove();
+});
