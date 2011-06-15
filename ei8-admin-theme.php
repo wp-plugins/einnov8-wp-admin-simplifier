@@ -3,7 +3,7 @@
 Plugin Name: eInnov8 WP Admin Simplifier
 Plugin URI: http://wordpress.org/extend/plugins/einnov8-wp-admin-simplifier/
 Plugin Description: Customize appearance of admin panels and limit options for non-admin users.
-Version: 2.0.6
+Version: 2.0.7
 Author: Tim Gallaugher
 Author URI: http://wordpress.org/extend/plugins/profile/yipeecaiey
 License: GPL2 
@@ -347,7 +347,14 @@ add_action('admin_menu', 'ei8_admin_options_menu');
 
 function ei8_admin_options_menu() {
     $siteName = ei8_admin_get_site_type_name();
-    add_options_page($siteName.' Admin Simplifier Preferences', 'Admin Simplifier', 10, __FILE__, 'ei8_admin_admin_options');
+    if(!function_exists('ei8_parent_menu')) {
+        function ei8_parent_menu() {
+            add_menu_page('eInnov8 Settings', 'eInnov8 Options', 'activate_plugins', 'einnov8', 'ei8_admin_admin_options');
+        }
+        ei8_parent_menu();
+    }
+    add_submenu_page( 'einnov8', 'Admin Simplifier Preferences', 'Admin Simplifier', 'activate_plugins', __FILE__, 'ei8_admin_admin_options');
+    //add_options_page($siteName.' Admin Simplifier Preferences', 'Admin Simplifier', 10, __FILE__, 'ei8_admin_admin_options');
 }
 
 function ei8_admin_admin_options() {

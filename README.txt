@@ -1,8 +1,8 @@
 === eInnov8 WP Admin Simplifier ===
 Contributors: yipeecaiey
 Requires at least: 2.7
-Tested up to: 3.1
-Stable tag: 2.0.6
+Tested up to: 3.1.3
+Stable tag: 2.0.7
 Tags: eInnov8, admin theme
 
 Customize appearance of admin panels and limit options for not-admin users
@@ -29,6 +29,7 @@ None, yet!
 ****
 
     VERSION DATE        TYPE    CHANGES
+    2.0.7   2011/06/14  UPDATE  Add 'eInnov8 Options' menu
     2.0.6   2011/04/05  UPDATE  Add ability for admin to show/hide footer
     2.0.5   2011/01/13  UPDATE  BugFix for dynamic plugin directory names
     2.0.4   2011/01/12  UPDATE  BugFix for wp3 single sites
